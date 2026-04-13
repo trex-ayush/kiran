@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vision - Kiran Business Forms Print Pvt Ltd</title>
+  <link rel="icon" href="./images/logo2png-bg.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, #f97316, #fb923c);
+      border-radius: 99px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.25s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: 0.35s;
+    }
+
+    @keyframes heroSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-anim-1 {
+      animation: heroSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-anim-2 {
+      animation: heroSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    .hero-anim-3 {
+      animation: heroSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    .mission-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px -8px rgba(37, 99, 235, 0.12);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 overflow-hidden">
+    <div class="absolute inset-0"
+      style="background: repeating-linear-gradient(135deg, transparent 0px, transparent 60px, rgba(255,255,255,0.04) 60px, rgba(255,255,255,0.04) 120px);">
+    </div>
+    <div class="absolute right-10 top-1/2 -translate-y-1/2 opacity-[0.06] hidden md:block">
+      <i class="fa-solid fa-eye text-white" style="font-size: 200px;"></i>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 via-orange-400 to-orange-500">
+    </div>
+    <div class="max-w-6xl mx-auto px-6 py-16 relative z-10">
+      <p class="hero-anim-1 text-xs font-semibold text-orange-300 uppercase tracking-widest mb-3">Our Purpose</p>
+      <h1 class="hero-anim-2 text-3xl md:text-4xl font-bold text-white mb-3">Vision</h1>
+      <p class="hero-anim-3 text-blue-100 text-sm max-w-xl leading-relaxed">The values and goals that drive everything
+        we do</p>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div
+      class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-500 overflow-hidden flex flex-col md:flex-row reveal">
+      <div
+        class="md:w-5/12 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white p-10 flex flex-col justify-center">
+        <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-6">
+          <i class="fa-solid fa-eye text-orange-300 text-lg"></i>
+        </div>
+        <h2 class="text-2xl font-bold mb-5">Our Vision</h2>
+        <blockquote class="text-blue-100 text-sm leading-relaxed border-l-2 border-orange-400 pl-4 italic">
+          "To be a Global Organization, providing the most Innovative Packaging Concepts &amp; Quality Solutions
+          adopting world class technology, thereby giving every customer solutions that truly epitomize quality."
+        </blockquote>
+        <p class="mt-5 text-orange-300 text-xs font-semibold tracking-wide uppercase">
+          Vision is the Art of Seeing what is Invisible to Others
+        </p>
+      </div>
+      <div class="md:w-7/12 p-10 flex flex-col justify-center">
+        <p class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-4">What this means to us</p>
+        <div class="space-y-4">
+          <div class="flex gap-4 items-start">
+            <div class="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-globe text-orange-500 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-800">Global Reach</p>
+              <p class="text-xs text-gray-500 mt-0.5">Expanding as a truly global packaging organization</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-lightbulb text-blue-500 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-800">Innovation</p>
+              <p class="text-xs text-gray-500 mt-0.5">Driving innovation in packaging concepts and materials</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-gear text-orange-500 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-800">World Class Technology</p>
+              <p class="text-xs text-gray-500 mt-0.5">Adopting the latest technology to stay ahead</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-trophy text-blue-500 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-800">Epitomize Quality</p>
+              <p class="text-xs text-gray-500 mt-0.5">Delivering solutions that set the standard for quality</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="bg-gray-50 border-y border-gray-100 py-14 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Our Mission</p>
+        <h2 class="text-3xl font-bold text-blue-700">What We Stand For</h2>
+        <div class="divider mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+
+        <div class="mission-card bg-white rounded-xl border border-gray-100 p-7 reveal reveal-delay-1">
+          <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
+            <i class="fa-solid fa-flask text-orange-500"></i>
+          </div>
+          <h3 class="font-semibold text-blue-800 mb-2 text-sm">Constant Innovation</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">To constantly innovate in the field of flexible packaging,
+            staying at the forefront of the industry.</p>
+        </div>
+
+        <div class="mission-card bg-white rounded-xl border border-gray-100 p-7 reveal reveal-delay-2">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+            <i class="fa-solid fa-circle-check text-blue-500"></i>
+          </div>
+          <h3 class="font-semibold text-blue-800 mb-2 text-sm">Consistency &amp; Excellence</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">To focus on consistency and excellence in quality across
+            every product we manufacture and deliver.</p>
+        </div>
+
+        <div class="mission-card bg-white rounded-xl border border-gray-100 p-7 reveal reveal-delay-3">
+          <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
+            <i class="fa-solid fa-earth-asia text-orange-500"></i>
+          </div>
+          <h3 class="font-semibold text-blue-800 mb-2 text-sm">World Class Materials</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">To channelize all efforts towards developing world class
+            packaging material that meets global standards.</p>
+        </div>
+
+        <div class="mission-card bg-white rounded-xl border border-gray-100 p-7 reveal reveal-delay-4">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+            <i class="fa-solid fa-truck-fast text-blue-500"></i>
+          </div>
+          <h3 class="font-semibold text-blue-800 mb-2 text-sm">On-Time Delivery</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">To ensure that we follow committed delivery schedules every
+            time, without exception.</p>
+        </div>
+
+        <div
+          class="mission-card bg-white rounded-xl border border-gray-100 p-7 md:col-span-2 lg:col-span-1 reveal reveal-delay-5">
+          <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
+            <i class="fa-solid fa-gem text-orange-500"></i>
+          </div>
+          <h3 class="font-semibold text-blue-800 mb-2 text-sm">Excellence at Optimum Cost</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Our ultimate objective is to deliver excellence in product
+            quality and services at optimum cost.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-5 py-14 text-center reveal">
+    <h2 class="text-2xl font-bold text-blue-700 mb-2">Ready to experience quality packaging?</h2>
+    <p class="text-gray-500 text-sm mb-7">Partner with us for packaging solutions that align with our vision.</p>
+    <a href="/contact"
+      class="group inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-9 py-3.5 rounded-full transition-all text-sm shadow-lg shadow-orange-500/20">
+      Contact Us &nbsp;<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+    </a>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="./js/components.js"></script>
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>
