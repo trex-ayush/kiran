@@ -1,5 +1,5 @@
 const navLinks = [
-  { label: "Departments", href: "/departments" },
+  { label: "Variable Data Printing", href: "/departments" },
   { label: "Products", href: "/products" },
   { label: "Infrastructure", href: "/infrastructure" },
   { label: "Industries", href: "/industries" },
