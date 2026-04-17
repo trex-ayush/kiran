@@ -1,8 +1,9 @@
 const navLinks = [
   { label: "Variable Data Printing", href: "/departments" },
-  { label: "Products", href: "/products" },
+  { label: "Flexible Packaging Solution", href: "/products" },
   { label: "Infrastructure", href: "/infrastructure" },
   { label: "Industries", href: "/industries" },
+  { label: "Vision", href: "/vision-mission" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -83,10 +84,10 @@ function buildFooter() {
           <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest mb-5">Quick Links</p>
           <ul class="space-y-2.5">
             ${[
-      { label: "Home", href: "/" },
-      { label: "Vision", href: "/vision-mission" },
-      ...navLinks
-    ].map(l => `<li><a href="${l.href}" class="text-gray-400 text-sm hover:text-orange-400 transition-colors duration-200">${l.label}</a></li>`).join("")}
+              { label: "Home", href: "/" },
+              ...navLinks,
+              { label: "Vision", href: "/vision-mission.html" }
+            ].map(l => `<li><a href="${l.href}" class="text-gray-400 text-sm hover:text-orange-400 transition-colors duration-200">${l.label}</a></li>`).join("")}
           </ul>
         </div>
         <div>
@@ -98,7 +99,11 @@ function buildFooter() {
             </li>
             <li class="flex gap-3 items-center">
               <i class="fa-solid fa-phone text-orange-400 text-xs w-3 shrink-0"></i>
-              <span>022-20872939 / 9820393070</span>
+              <a href="tel:02220872939" class="hover:text-orange-400 transition-colors duration-200">022-20872939</a>
+            </li>
+            <li class="flex gap-3 items-center">
+              <i class="fa-brands fa-whatsapp text-orange-400 text-xs w-3 shrink-0"></i>
+              <a href="https://wa.me/919820393070" target="_blank" class="hover:text-orange-400 transition-colors duration-200">9820393070</a>
             </li>
             <li class="flex gap-3 items-center">
               <i class="fa-solid fa-envelope text-orange-400 text-xs w-3 shrink-0"></i>

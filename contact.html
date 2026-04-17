@@ -74,8 +74,8 @@
           <i class="fa-solid fa-phone text-blue-500"></i>
         </div>
         <p class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Phone</p>
-        <p class="text-gray-500 text-xs">022-20872939</p>
-        <p class="text-gray-500 text-xs">9820393070</p>
+        <a href="tel:02220872939" class="text-gray-500 hover:text-orange-500 text-xs block">022-20872939</a>
+        <a href="https://wa.me/919820393070" target="_blank" class="text-orange-500 hover:underline text-xs">9820393070 <i class="fa-brands fa-whatsapp text-green-500 text-[10px] ml-1"></i></a>
       </div>
       <div class="info-card bg-white rounded-xl border border-gray-100 shadow-sm p-5 text-center reveal reveal-delay-3">
         <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center mx-auto mb-3">
@@ -120,51 +120,56 @@
           1. Go to https://formspree.io and sign up (free)
           2. Create a new form, set email to karan@kiranbusiness.in
           3. Replace YOUR_FORM_ID with your actual ID
-             e.g. action="https://formspree.io/f/xpwzgqkd"
+             e.g. action="https://formspree.io/f/YOUR_FORM_ID"
         -->
-        <form id="enquiryForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+        <form id="enquiryForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4" novalidate>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-semibold text-gray-600 mb-1.5">Name <span class="text-red-400">*</span></label>
-              <input type="text" name="name" required placeholder="Your full name"
+              <input type="text" name="name" required placeholder="Your full name" minlength="2" maxlength="50"
                 class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all" />
+              <p class="text-xs text-red-500 mt-1 hidden name-error">Please enter a valid name (min 2 characters)</p>
             </div>
             <div>
               <label class="block text-xs font-semibold text-gray-600 mb-1.5">Company</label>
-              <input type="text" name="company" placeholder="Your company name"
+              <input type="text" name="company" placeholder="Your company name" maxlength="100"
                 class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all" />
             </div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-semibold text-gray-600 mb-1.5">Phone <span class="text-red-400">*</span></label>
-              <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX"
+              <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[+]?91[6-9][0-9]{9}"
                 class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all" />
+              <p class="text-xs text-red-500 mt-1 hidden phone-error">Please enter a valid 10-digit Indian mobile number</p>
             </div>
             <div>
               <label class="block text-xs font-semibold text-gray-600 mb-1.5">Email <span class="text-red-400">*</span></label>
               <input type="email" name="email" required placeholder="you@example.com"
                 class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all" />
+              <p class="text-xs text-red-500 mt-1 hidden email-error">Please enter a valid email address</p>
             </div>
           </div>
           <div>
             <label class="block text-xs font-semibold text-gray-600 mb-1.5">Address</label>
-            <input type="text" name="address" placeholder="Your business address"
+            <input type="text" name="address" placeholder="Your business address" maxlength="200"
               class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all" />
           </div>
           <div>
             <label class="block text-xs font-semibold text-gray-600 mb-1.5">Enquiry <span class="text-red-400">*</span></label>
-            <textarea name="enquiry" required rows="4" placeholder="Describe what you're looking for — product type, quantity, application etc."
+            <textarea name="enquiry" required rows="4" minlength="10" maxlength="1000" placeholder="Describe what you're looking for — product type, quantity, application etc."
               class="w-full border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none transition-all resize-none"></textarea>
+            <p class="text-xs text-red-500 mt-1 hidden enquiry-error">Please enter at least 10 characters</p>
           </div>
 
           <input type="hidden" name="_subject" value="New Enquiry - Kiran Business Website" />
           <input type="hidden" name="_next" value="" />
+          <input type="text" name="_gotcha" style="display:none" />
 
-          <button type="submit"
-            class="group w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-all text-sm flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20">
+          <button type="submit" id="submitBtn"
+            class="group w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-all text-sm flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 disabled:opacity-70 disabled:cursor-not-allowed">
             <i class="fa-solid fa-paper-plane text-sm"></i>
-            Send Enquiry
+            <span>Send Enquiry</span>
           </button>
           <p class="text-xs text-gray-400 text-center">We typically respond within 1 business day.</p>
         </form>
@@ -219,6 +224,73 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => obs.observe(el));
+
+    // Form validation
+    const form = document.getElementById('enquiryForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showError(input, errorClass) {
+      const errorEl = form.querySelector('.' + errorClass);
+      if (errorEl) errorEl.classList.remove('hidden');
+      input.classList.add('border-red-400');
+    }
+
+    function hideError(input, errorClass) {
+      const errorEl = form.querySelector('.' + errorClass);
+      if (errorEl) errorEl.classList.add('hidden');
+      input.classList.remove('border-red-400');
+    }
+
+    function validateName() {
+      const input = form.querySelector('input[name="name"]');
+      if (input.value.trim().length < 2) { showError(input, 'name-error'); return false; }
+      hideError(input, 'name-error'); return true;
+    }
+
+    function validatePhone() {
+      const input = form.querySelector('input[name="phone"]');
+      const phoneRegex = /^[+]?91[6-9][0-9]{9}$/;
+      const cleaned = input.value.replace(/\s/g, '');
+      if (!phoneRegex.test(cleaned)) { showError(input, 'phone-error'); return false; }
+      hideError(input, 'phone-error'); return true;
+    }
+
+    function validateEmail() {
+      const input = form.querySelector('input[name="email"]');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(input.value)) { showError(input, 'email-error'); return false; }
+      hideError(input, 'email-error'); return true;
+    }
+
+    function validateEnquiry() {
+      const input = form.querySelector('textarea[name="enquiry"]');
+      if (input.value.trim().length < 10) { showError(input, 'enquiry-error'); return false; }
+      hideError(input, 'enquiry-error'); return true;
+    }
+
+    // Real-time validation on blur
+    form.querySelector('input[name="name"]').addEventListener('blur', validateName);
+    form.querySelector('input[name="phone"]').addEventListener('blur', validatePhone);
+    form.querySelector('input[name="email"]').addEventListener('blur', validateEmail);
+    form.querySelector('textarea[name="enquiry"]').addEventListener('blur', validateEnquiry);
+
+    form.addEventListener('submit', function(e) {
+      const isNameValid = validateName();
+      const isPhoneValid = validatePhone();
+      const isEmailValid = validateEmail();
+      const isEnquiryValid = validateEnquiry();
+
+      if (!isNameValid || !isPhoneValid || !isEmailValid || !isEnquiryValid) {
+        e.preventDefault();
+        submitBtn.querySelector('span').textContent = 'Please fix errors';
+        setTimeout(() => submitBtn.querySelector('span').textContent = 'Send Enquiry', 2000);
+        return;
+      }
+
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    });
   </script>
 </body>
 </html>
