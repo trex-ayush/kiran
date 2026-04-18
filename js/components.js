@@ -85,8 +85,7 @@ function buildFooter() {
           <ul class="space-y-2.5">
             ${[
               { label: "Home", href: "/" },
-              ...navLinks,
-              { label: "Vision", href: "/vision-mission.html" }
+              ...navLinks
             ].map(l => `<li><a href="${l.href}" class="text-gray-400 text-sm hover:text-orange-400 transition-colors duration-200">${l.label}</a></li>`).join("")}
           </ul>
         </div>
